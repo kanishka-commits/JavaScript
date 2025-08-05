@@ -9,7 +9,8 @@
 ## 🧾 Variable Declarations
 - Use **const** for variables that should not be reassigned after their initial value is set. 
 - Use **let** for variables whose values need to be reassigned within a block scope.
-- **var** is generally discouraged in modern JavaScript development due to its function-scoping and hoisting behavior which can lead to unexpected issues, favoring let and const for better control over variable scope and mutability.
+- **var** is generally discouraged in modern JavaScript development due to its function-scoping and hoisting behavior which can lead to unexpected issues, favoring let and const for better control over variable scope and mutability. var is attached to the **global window object** when declared globally.
+  `Function scope: var can leak outside block, accessible in parent function`
 ---
 
 ## 🔁 Hoisting
