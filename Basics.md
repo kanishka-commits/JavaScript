@@ -85,20 +85,27 @@ Declared by `function X() {}`
 The values we **send** are arguments
 While the values that're in function () are parameters
 
+**Call-Back Function:** A function passed into another function
+**Anonymous Function:** Without any name,  eg:
+`function () { ... }`
+`() => { ... }`
+**First-Class Function** Uisng func as a variable 
+
 ---
 
 
 ### ✅ Truthy and ❌ Falsy in JavaScript
 7 Falsy values:
 ```js
+null
+undefined
 false
+NaN
 0
 -0
 0n        // BigInt zero
 ""        // Empty string
-null
-undefined
-NaN
+documnet.all
 ```
 Everything else: Truthy
 
@@ -113,6 +120,21 @@ Everything else: Truthy
 
 ---
 ## JavaScript Array Methods
+Arrays are Objects i.e.
+```js
+let array = {
+  0:x,
+  1:y,
+  2:z
+}
+i.e. array=[x,y,z]
+```
+
+thu we can even store negative index i.e.
+`array[-a]=b` i.e.array=[x,y,z,-a:b]\
+
+Array.isArray([]) TRUE\
+Array.isArray({}) FALSE\
 
 
 ### Mutating Methods (modify the original array)
@@ -171,7 +193,19 @@ Everything else: Truthy
 
 
 ## Object
-It Holds information of a person/thing in form of `key:value` pair
-*Key* can be a a property
+It Holds information of a person/thing in form of `key:value` pair\
+*Key* can be a a property\
 when value of a key becomes a function, the *key* becomes a method i.e. `key:function(){..}` here key is a method
 
+```js
+const obj = {
+  name: "John",
+  age: 21
+};
+```
+**We can copy Object, using {...a}**
+
+to change value, obj.name=xyz\
+to access value, obj.name obj[name]\
+  &nbsp; &nbsp; in for...in loop, we take a variable which iterates over keys, thus we need to do `obj[name]`
+to delete key:value, delete obj.key\
