@@ -58,6 +58,24 @@ a = 10;       // Initialization stays in place
 Why, Objects are mutable? 
 1. Efficiency & Performance (Memory Optimization)
 2. Objects Are Meant to Be Updated
+
+How to copy ref values? **Using Spread operator [...]**
+```js
+var a = 12;
+var b = a;
+
+b=3;
+console.log(a);
+```
+
+but when we do,
+```js
+var a = 12;
+var b = [...a];
+```
+
+**It copies!!** 
+
 ---
 
 ## Functions
