@@ -1,21 +1,34 @@
 # JavaScript Essentials
+Brendan Eich created JavaScript, a scripting language\
+JavaScript first allocates memory for variables and functions (hoisting), then executes code line-by-line in a single-threaded, top-down manner.\
 
+It is a dynamically typed language, meaning that a variable's data type is determined at runtime. You do not have to declare the data type of a variable before using it. \
 `console.log (12,13,14..)`  can print multiple values\
-`===` compares datatype and value
+`===` compares datatype and value\
+
+Debugging happens during execution, not during compilation.\
 
 ---
 
+## Implicit Type
+Coercion is when JavaScript automatically converts one data type to another during operations like comparisons or arithmetic — without you asking it to.
 
-## 🧾 Variable Declarations
-- Use **const** for variables that should not be reassigned after their initial value is set. 
+## 🧾 Variable Declarations (Keyword for varibles dec)
+- Use **const** for variables that should not be reassigned after their initial value is set. Block + function Scope
 - Use **let** for variables whose values need to be reassigned within a block scope.
 - **var** is generally discouraged in modern JavaScript development due to its function-scoping and hoisting behavior which can lead to unexpected issues, favoring let and const for better control over variable scope and mutability. var is attached to the **global window object** when declared globally.
   `Function scope: var can leak outside block, accessible in parent function`
+
+  Main issues of var:
+    - Doesnot prevent redeclaration within the same scope.
+    - When var is declared in the global scope (outside of any function), it becomes a property of the global object (e.g., window in browsers).
+    - Function Scope, Not Block Scope:
+                      
 ---
 
 ## 🔁 Hoisting
 - **Hoisting is JavaScript's default behavior of moving declarations (not assignments) to the top of the current scope (global or function scope).**
-  - *This means you can use variables and call functions before they are formally declared in your code.*
+  - *This means you can use variables (only var) and call functions before they are formally declared in your code.*
  ```javascript
 console.log(a); // undefined
 var a = 10;
@@ -30,16 +43,19 @@ a = 10;       // Initialization stays in place
 
 ```
 
+All var, let, const are hosted but only accessible for var
 - You can reference variables/functions before they are declared, but:
   - `var` gives `undefined`
   - `let`/`const` give `ReferenceError`
   - ---
-## 🗃️  JavaScript Data Types (Quick Summary)
+## 🗃️  JavaScript Data Types
 
 ### 🔹 Primitive Types
 - Immutable
 - Assigned **by value**
-- Types: `String`, `Number`, `BigInt`, `Boolean`, `Undefined`, `Null`, `Symbol`
+- Types: `String`, `Number`, `BigInt`, `Boolean`, `Undefined`, `Null`, `Symbol(ES6 version)`
+
+We can mutability using a wrapper object: i..e let x = { y:6} then x.y=7 
 
 ### 🔸 Reference Types [], {}, ()
 - Mutable: changes through one variable reflect in others pointing to the same object.
@@ -100,7 +116,7 @@ While the values that're in function () are parameters
 null
 undefined
 false
-NaN
+NaN, To check if a value is NaN, we use the isNaN() function,
 0
 -0
 0n        // BigInt zero
@@ -209,3 +225,5 @@ to change value, obj.name=xyz\
 to access value, obj.name obj[name]\
   &nbsp; &nbsp; in for...in loop, we take a variable which iterates over keys, thus we need to do `obj[name]`
 to delete key:value, delete obj.key\
+
+
