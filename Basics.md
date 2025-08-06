@@ -5,10 +5,51 @@ JavaScript first allocates memory for variables and functions (hoisting), then e
 It is a dynamically typed language, meaning that a variable's data type is determined at runtime. You do not have to declare the data type of a variable before using it. \
 `console.log (12,13,14..)`  can print multiple values\
 `===` compares datatype and value\
+charAt(index) function of the JavaScript string finds a char element at the supplied index. \
+
 
 Debugging happens during execution, not during compilation.\
 
 ---
+
+## Advantages 
+  - Client + Server Side: JavaScript runs in both browser (frontend) and server (via Node.js).
+  - Easy to Learn: Simple syntax and beginner-friendly.
+  - Fast Execution: Runs directly in the browser, no compilation needed.
+  - Enhanced Interactivity: Enables dynamic content, animations, form validation, etc.
+  - Wide Ecosystem: Huge collection of frameworks (React, Vue, Angular) and libraries.
+  - Platform Independent: Works on all major browsers and devices.
+  - Supports OOP & Functional Programming: Flexible and powerful for various programming styles.
+
+## Errors
+| Error Type    | Happens When?           | Example                           | Error Message Example           |
+| ------------- | ----------------------- | --------------------------------- | ------------------------------- |
+| Syntax Error  | Code violates JS syntax | Missing `)` or `{`                | `SyntaxError: Unexpected token` |
+| Runtime Error | Code tries illegal ops  | Using undefined variable/function | `ReferenceError`, `TypeError`   |
+| Logical Error | Logic is incorrect      | Output is wrong but no crash      | No error, just wrong output     |
+
+## External Javascript
+Advantages:
+  - It allows web designers and developers to collaborate on HTML and javascript files.
+  - We can reuse the code.
+  - Code readability is simple in external javascript.
+
+## Scope 
+It lets us know at a given part of code, what are variables and functions we can or cannot access.\
+There are three types of scopes in JS:\
+  - Global Scope
+  - Local or Function Scope
+  - Block Scope
+
+## Scope Chain
+It's the process JavaScript uses to look up variables when they're used in nested functions.\
+
+i.e. When a variable is used inside a function, JavaScript:\
+  - Looks for it inside that function (local scope).
+  - If not found, looks one level up (parent scope).
+  - Keeps going up the chain until it reaches the global scope.
+  - If it’s still not found, it throws a ReferenceError.
+
 
 ## Implicit Type
 Coercion is when JavaScript automatically converts one data type to another during operations like comparisons or arithmetic — without you asking it to.
@@ -18,13 +59,17 @@ Coercion is when JavaScript automatically converts one data type to another duri
 - Use **let** for variables whose values need to be reassigned within a block scope.
 - **var** is generally discouraged in modern JavaScript development due to its function-scoping and hoisting behavior which can lead to unexpected issues, favoring let and const for better control over variable scope and mutability. var is attached to the **global window object** when declared globally.
   `Function scope: var can leak outside block, accessible in parent function`
-
-  Main issues of var:
+    Main issues of var:
     - Doesnot prevent redeclaration within the same scope.
     - When var is declared in the global scope (outside of any function), it becomes a property of the global object (e.g., window in browsers).
     - Function Scope, Not Block Scope:
                       
 ---
+  
+## Temporal dead zone
+When you declare a variable using let or const, it is hoisted (moved to the top of the scope), but not initialized.\
+Until the code execution reaches the declaration line, that variable is in the "temporal dead zone", meaning you cannot access it — doing so will throw a ReferenceError.
+
 
 ## 🔁 Hoisting
 - **Hoisting is JavaScript's default behavior of moving declarations (not assignments) to the top of the current scope (global or function scope).**
@@ -96,16 +141,25 @@ var b = [...a];
 
 ## Functions
 
-Declared by `function X() {}`
+Declared by `function X() {}`\
+In JavaScript, functions are first-class citizens — this means: Functions can be treated like any other variable.\
 
-The values we **send** are arguments
-While the values that're in function () are parameters
+JavaScript functions are objects — and objects are assigned by reference, not by value.\
+thus when we do
+```js
+const X = obj.Y;
+```
+then Both obj.Y and X now point to the same function object in memory.
+
+The values we **send** are arguments\
+While the values that're in function () are parameters\
 
 **Call-Back Function:** A function passed into another function
 **Anonymous Function:** Without any name,  eg:
 `function () { ... }`
 `() => { ... }`
 **First-Class Function** Uisng func as a variable 
+**Higher Order Function** Functions that operate on other functions, either by taking them as arguments or by returning them, are called higher-order functions.
 
 ---
 
@@ -225,5 +279,8 @@ to change value, obj.name=xyz\
 to access value, obj.name obj[name]\
   &nbsp; &nbsp; in for...in loop, we take a variable which iterates over keys, thus we need to do `obj[name]`
 to delete key:value, delete obj.key\
+
+## Recursion
+Recursion is a technique to iterate over an operation by having a function call itself repeatedly until it arrives at a result.
 
 
