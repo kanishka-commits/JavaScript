@@ -231,7 +231,7 @@ Real life eg: validating an email and a strong password during signup.
 
 ## Currying in JavaScript
 It's a technique in JavaScript (and functional programming) where:
-A function with multiple arguments is transformed into a series of functions each taking a single argument.
+A function with multiple arguments is transformed into a series of functions each taking a less no of argument. (can be one, can be more)
 
 eg:
 Instead of writing:
