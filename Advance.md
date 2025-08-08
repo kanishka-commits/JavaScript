@@ -251,7 +251,7 @@ For arrow functions:
 `const add = a => b => a + b;`
 
 ## Closure
-A closure is formed when a function remembers and accesses the variables from its outer scope, even after that outer function has finished running.
+Closure ia a feature in JS which is formed when a function remembers and accesses the variables from its outer scope, even after that outer function has finished running.
 
 
 **A closure lets a function "remember" and "use" variables from where it was created, not where it was called.**\
@@ -268,13 +268,14 @@ BY using memoization we can store(cache) the computed results based on the param
 
 
 ## Constructor functions
+Constructor functions are just normal functions used with new.\
 Used to create objects in javascript.\
 
 USage: If we want to create multiple objects having similar properties and methods, constructor functions are used.\
 
 Note- The name of a constructor function should always be written in Pascal Notation: every word should start with a capital letter.\
 
-*Classes* are syntactic sugars for constructor functions. They provide a new way of declaring constructor functions in javascript.
+CF are written inside Classes but it's not compulsory. *Classes* are syntactic sugars for constructor functions. They provide a new way of declaring constructor functions in javascript.
 
 `syntactic sugars syntax within a programming language that is designed to make things easier to read or write. It doesn’t add new functionality,`
 
