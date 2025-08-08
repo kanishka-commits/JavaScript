@@ -1,5 +1,7 @@
 # JavaScript Essentials
 Brendan Eich created JavaScript, a scripting language\
+*A scripting language is a type of programming language used to give instructions to a computer without compiling the code first.*\
+*JavaScript still runs without compilation in browsers*
 JavaScript first allocates memory for variables and functions (hoisting), then executes code line-by-line in a single-threaded, top-down manner.\
 
 It is a dynamically typed language, meaning that a variable's data type is determined at runtime. You do not have to declare the data type of a variable before using it. \
@@ -159,7 +161,10 @@ While the values that're in function () are parameters\
 `function () { ... }`
 `() => { ... }`
 **First-Class Function** Uisng func as a variable 
-**Higher Order Function** Functions that operate on other functions, either by taking them as arguments or by returning them, are called higher-order functions.
+**Higher Order Function** Functions that operate on other functions, either by taking them as arguments or by returning them, are called higher-order functions.\
+
+HOF = function that uses another function.\
+Callback = the function being used.\
 
 ---
 
@@ -177,7 +182,12 @@ NaN, To check if a value is NaN, we use the isNaN() function,
 ""        // Empty string
 documnet.all
 ```
-Everything else: Truthy
+Everything else: Truthy\
+
+0n: BigInt in JavaScript is a special numeric type that lets you store and work with integers larger than Number.MAX_SAFE_INTEGER (2⁵³ - 1) without losing precision.\
+How to create? `const big2 = BigInt("X");` or `const big = Xn;`
+
+
 
 ---
 ## Pop-Up functions
@@ -215,7 +225,7 @@ Array.isArray({}) FALSE\
 | **`pop()`**    | Removes the **last** element                     |
 | **`shift()`**  | Removes the **first** element                    |
 | **`unshift()`**| Adds element(s) to the **beginning**             |
-| **`splice()`** | Adds/removes/replaces elements at a given index |
+| **`splice()`** | Adds/removes/replaces elements at a given index  |
 | `sort()`       | Sorts array **in place**                         |
 | `reverse()`    | Reverses the array **in place**                  |
 | `fill()`       | Fills elements with a static value               |
@@ -225,13 +235,13 @@ Array.isArray({}) FALSE\
 
 ### 🔸 Non-Mutating Methods (return new array or value)
 
-| Method          | Description                                      |
-|------------------|--------------------------------------------------|
+| Method           | Description                                     |
+|------------------|-------------------------------------------------|
 | `concat()`       | Merges two or more arrays                       |
 | `slice()`        | Returns a shallow copy of a portion             |
 | `map()`          | Transforms elements into a new array            |
-| `filter()`       | Filters elements based on a condition           |
-| `reduce()`       | Reduces array to a single value                 |
+| **`filter()`**   | Filters elements based on a condition           |
+| **`reduce()`**   | Reduces array to a single value                 |
 | `reduceRight()`  | Like reduce, but right-to-left                  |
 | `find()`         | Finds the **first** matching element            |
 | `findIndex()`    | Finds the **index** of the first match          |
@@ -260,6 +270,29 @@ Array.isArray({}) FALSE\
 - `flatMap()` – Maps and flattens in one step
 
 ---
+
+## JavaScript String Methods
+
+| Function        | What it does                      | Example                          |
+| --------------- | --------------------------------- | -------------------------------- |
+| `length`        | Gets the length                   | `"hello".length` → `5`           |
+| `charAt()`      | Gets a character at a position    | `"hello".charAt(1)` → `"e"`      |
+| `indexOf()`     | Finds first position of text      | `"hello".indexOf("l")` → `2`     |
+| `lastIndexOf()` | Finds last position of text       | `"hello".lastIndexOf("l")` → `3` |
+| `includes()`    | Checks if text exists             | `"hello".includes("he")`         |
+| `startsWith()`  | Checks beginning of string        | `"hello".startsWith("he")`       |
+| `endsWith()`    | Checks end of string              | `"hello".endsWith("lo")`         |
+| `toUpperCase()` | Makes uppercase                   | `"hi".toUpperCase()`             |
+| `toLowerCase()` | Makes lowercase                   | `"HI".toLowerCase()`             |
+| `trim()`        | Removes spaces at start/end       | `" hi ".trim()`                  |
+| `slice()`       | Extracts part of string           | `"hello".slice(1,4)` → `"ell"`   |
+| `substring()`   | Similar to slice but no negatives | `"hello".substring(1,4)`         |
+| `substr()`      | Same as slice by deprecated       |
+| `replace()`     | Replaces first match              | `"hi hi".replace("hi","bye")`    |
+| `replaceAll()`  | Replaces all matches              | `"hi hi".replaceAll("hi","bye")` |
+| **`split()`**   | **Turns string into array**       | `"a,b,c".split(",")`             |
+| `repeat()`      | Repeats string                    | `"ha".repeat(3)` → `"hahaha"`    |
+
 
 
 ## Object
