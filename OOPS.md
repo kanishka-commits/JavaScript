@@ -48,10 +48,34 @@ class BankAccount {
 ### **4. Abstraction**
 Hiding complex implementation details and showing only the essential features through a public interface.
 ```javascript
+// Abstraction example in OOP
 class CoffeeMachine {
-  start() { console.log("Starting..."); }
-  brewCoffee() { console.log("Brewing coffee"); }
+  start() {
+    console.log("Starting the coffee machine...");
+  }
+
+  brewCoffee() {
+    console.log("Brewing coffee...");
+  }
+
+  // Internal method - hidden from the user
+  #heatWater() {
+    console.log("Heating water internally...");
+  }
+
+  // Public method that uses the private method
+  makeCoffee() {
+    this.start();
+    this.#heatWater(); // user doesn't see this implementation
+    this.brewCoffee();
+    console.log("Coffee is ready! ☕");
+  }
 }
+
+// Using the abstraction
+const myMachine = new CoffeeMachine();
+myMachine.makeCoffee(); // Simple call for the user
+// myMachine.#heatWater(); // ❌ Not allowed - private
 ```
 
 ### **5. Inheritance**
