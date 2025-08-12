@@ -1,5 +1,5 @@
 # JavaScript OOP Concepts & Interview Practice
-
+JavaScript is multi-paradigm — it supports OOP, functional, and procedural styles.
 ## **Definition of OOP**
 **Object-Oriented Programming (OOP)** is a programming paradigm that organizes code into **objects** — collections of properties (data) and methods (functions) that operate on that data.
 It helps in **code reusability, modularity, and maintainability**.
