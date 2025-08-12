@@ -81,23 +81,64 @@ myMachine.makeCoffee(); // Simple call for the user
 ### **5. Inheritance**
 Allows one class to acquire properties and methods of another class, promoting code reuse.
 ```javascript
+// Abstract-like class (cannot be directly instantiated)
 class Animal {
-  speak() { console.log("Animal sound"); }
+  constructor(name) {
+    if (new.target === Animal) {
+      throw new Error("Cannot instantiate abstract class directly");
+    }
+    this.name = name;
+  }
+
+  eat() {
+    console.log(`${this.name} is eating...`);
+  }
+
+  // Abstract method (must be implemented by child classes)
+  makeSound() {
+    throw new Error("makeSound() must be implemented by subclass");
+  }
 }
+
+// Child class - Dog
 class Dog extends Animal {
-  speak() { console.log("Bark"); }
+  makeSound() {
+    console.log("Bark! Bark!");
+  }
 }
-new Dog().speak();
+// Usage
+const dog = new Dog("Buddy");
+dog.eat();        // Buddy is eating...
+dog.makeSound();  // Bark! Bark!
 ```
 
 ### **6. Polymorphism**
 Allows methods to have the same name but behave differently depending on the object that calls them.
 ```javascript
-function makeSound(animal) {
-  animal.speak();
+// Parent class
+class Animal {
+  speak() {
+    console.log("Some generic animal sound");
+  }
 }
-makeSound(new Dog()); // Bark
-makeSound(new Animal()); // Animal sound
+
+// Child class
+class Dog extends Animal {
+  speak() {
+    console.log("Bark!");
+  }
+}
+
+// Function that shows polymorphism
+function makeAnimalSpeak(animal) {
+  animal.speak(); // Same method call, different output depending on object
+}
+
+// Creating objects
+const dog = new Dog();
+
+// Using the same function for different objects
+makeAnimalSpeak(dog); // Bark!
 ```
 
 ### **7. `this` keyword**
