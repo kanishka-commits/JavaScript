@@ -275,6 +275,10 @@ Array.isArray({}) FALSE\
 | `isArray()`      | Checks if a value is an array                   |
 
 
+`array.reduce(callback(accumulator, currentValue, index, array), initialValue)`
+  - accumulator → Holds the accumulated result.
+  - currentValue → The current array element.
+  - initialValue → (Optional) Starting value for the accumulator.
 
 ### 🆕 ES6+ Additions
 
