@@ -312,6 +312,11 @@ Array.isArray({}) FALSE\
 | `repeat()`      | Repeats string                    | `"ha".repeat(3)` → `"hahaha"`    |
 
 
+`string.split(separator, limit)`
+  - separator → What to split on (string or regex).
+  - limit → Optional; maximum number of splits.
+
+
 
 ## Object
 It Holds information of a person/thing in form of `key:value` pair\
