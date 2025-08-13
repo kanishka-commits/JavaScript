@@ -31,6 +31,12 @@ Debugging happens during execution, not during compilation.\
 | Logical Error | Logic is incorrect      | Output is wrong but no crash      | No error, just wrong output     |
 
 ## External Javascript
+
+Best Practices:\
+Place <script> before the closing </body> tag so the HTML loads first, improving performance.
+
+If you need to keep scripts in <head>, use defer:
+`<script src="script.js" defer></script>` \
 Advantages:
   - It allows web designers and developers to collaborate on HTML and javascript files.
   - We can reuse the code.
@@ -124,17 +130,20 @@ Why, Objects are mutable?
 
 How to copy ref values? **Using Spread operator [...]**
 ```js
-var a = 12;
+var a = [12, 13];
 var b = a;
 
-b=3;
-console.log(a);
+b[0] = 99;    // modifying array contents
+console.log(a); // [99, 13] — changes reflect in 'a'
 ```
 
 but when we do,
 ```js
-var a = 12;
-var b = [...a];
+var a = [12, 13];
+var b = [...a]; // creates a shallow copy
+
+b[0] = 99; 
+console.log(a); // [12, 13] — original unchanged
 ```
 
 **It copies!!** 
