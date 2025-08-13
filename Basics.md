@@ -240,6 +240,11 @@ Array.isArray({}) FALSE\
 | `fill()`       | Fills elements with a static value               |
 | `copyWithin()` | Copies part of the array within itself           |
 
+`array.splice(start, deleteCount, item1, item2, ...)`
+  - start → Index to start changing the array.
+  - deleteCount → Number of elements to remove.
+  - item1, item2, ... → Elements to insert at start index.
+
 
 
 ### 🔸 Non-Mutating Methods (return new array or value)
