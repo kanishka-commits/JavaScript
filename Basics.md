@@ -100,6 +100,10 @@ All var, let, const are hosted but only accessible for var
 - You can reference variables/functions before they are declared, but:
   - `var` gives `undefined`
   - `let`/`const` give `ReferenceError`
+
+Function declarations (function sayHello) are hoisted with their body.\
+Variables declared with var are hoisted as undefined (without assignment).\ 
+
   - ---
 ## 🗃️  JavaScript Data Types
 
