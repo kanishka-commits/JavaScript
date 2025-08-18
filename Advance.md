@@ -315,3 +315,31 @@ Client-side: Everything you see and interact with — buttons, forms, animations
 Server-side: Everything that happens behind the scenes — storing data, verifying login, sending emails.\
 
 
+
+---
+
+## What is the Event Loop?
+- JavaScript is **single-threaded** → it executes one thing at a time.
+- To handle async tasks without blocking, it uses:
+  - **Call Stack** → executes synchronous code.
+  - **Microtask Queue** → runs Promise callbacks, `queueMicrotask`, MutationObserver.
+  - **Macrotask Queue** → runs `setTimeout`, `setInterval`, I/O, etc.
+- The **Event Loop** continuously checks the call stack and queues:
+  1. Executes sync code from Call Stack.
+  2. Executes all Microtasks.
+  3. Executes one Macrotask.
+  4. Repeats the cycle.
+
+
+## Properties of the Event Loop
+1. **Single-threaded** – only one execution context at a time.
+2. **Synchronous before Asynchronous** – stack must clear before async runs.
+3. **Microtasks > Macrotasks priority**.
+4. **Non-blocking** – async tasks delegated to browser APIs / Node.js APIs.
+5. **Infinite loop** – keeps running as long as program is alive.
+
+
+## Execution Order
+1. **Synchronous Code** (Call Stack).  
+2. **Microtasks** (Promise callbacks).  
+3. **Macrotasks** (`setTimeout`, `setInterval`).  
