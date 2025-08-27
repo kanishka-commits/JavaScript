@@ -279,6 +279,11 @@ CF are written inside Classes but it's not compulsory. *Classes* are syntactic s
 
 `syntactic sugars syntax within a programming language that is designed to make things easier to read or write. It doesn’t add new functionality,`
 
+```js
+var obj1=new construtor();
+```
+here this constructor is a function
+
 ## DOM
 DOM stands for Document Object Model.  DOM is a programming interface for HTML and XML documents.\
 When the browser tries to render an HTML document, it creates an object based on the HTML document called DOM. Using this DOM, we can manipulate or change various elements inside the HTML document.\
