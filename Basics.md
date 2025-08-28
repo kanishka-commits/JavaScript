@@ -185,6 +185,36 @@ While the values that're in function () are parameters\
 HOF = function that uses another function.\
 Callback = the function being used.\
 
+**Pure Function:** A pure function is one that:
+                - Depends only on its input → Output is determined only by the arguments passed.
+                - Has no side effects → It doesn’t change anything outside itself (like global variables, DOM, console, etc.).
+
+*Impure fnctions are opposite of it*
+
+```js
+//PURE FUNCTIONS
+function add(a, b) {
+  return a + b;
+}
+
+console.log(add(2, 3)); // 5
+console.log(add(2, 3)); // always 5 (same input → same output)
+
+```
+
+```js
+//IMPURE FUNCTIONS
+let counter = 0;
+
+function increment() {
+  counter++;
+  return counter;
+}
+
+console.log(increment()); // 1
+console.log(increment()); // 2 (same input, different output)
+```
+
 ---
 
 ## New Keyword
@@ -349,6 +379,40 @@ to change value, obj.name=xyz\
 to access value, obj.name obj[name]\
   &nbsp; &nbsp; in for...in loop, we take a variable which iterates over keys, thus we need to do `obj[name]`
 to delete key:value, delete obj.key\
+
+### ProtoType in Object
+
+Every created object gets a property called as Prototype automatically. `[[Prototoype]]`
+
+Usage: **It contains many helper properties and methods** (eg .length)
+
+
+### ProtoTypal Inheritance
+
+Inheritance: Passing features of Parents to Children. In JavaScript, inheritance is performed through the prototype chain instead of Class chain. \
+
+```js
+let animal = {
+  eats: true
+};
+
+let dog = {
+  barks: true
+};
+
+// Set prototype manually
+dog.__proto__ = animal;
+
+// OR In modern way we use:
+Object.setPrototypeOf(dog, animal);
+
+console.log(dog.barks); // true (own property)
+console.log(dog.eats);  // true (inherited from animal via __proto__)
+```
+`Note: __proto__ works, but it’s considered legacy (not recommended for direct use).`
+
+
+
 
 ## Recursion
 Recursion is a technique to iterate over an operation by having a function call itself repeatedly until it arrives at a result.
