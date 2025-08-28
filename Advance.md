@@ -143,6 +143,14 @@ const CounterModule = (function () {
 })();
 ```
 We can create it using nrml functiona also but we'll need not to "call" ir, directly call "CounterModule.increment()" like this
+
+Why we use IIFE:
+  - To run code as soon as it’s written.
+  - Create private variables or functions that cannot be accessed from outside.
+  - To avoid accidental variable leaks.(If you forget var/let/const)
+
+Easy method to write: 1st. ()()   2nd. (function(){})()
+
 ## Strict Mode
 In 'Strict mode,' however, all forms of errors, including silent errors, will be thrown. As a result, debugging becomes a lot simpler.\
 
