@@ -3,14 +3,15 @@ Brendan Eich created JavaScript, a scripting language\
 *A scripting language is a type of programming language used to give instructions to a computer without compiling the code first.*\
 *JavaScript still runs without compilation in browsers*
 JavaScript first allocates memory for variables and functions (hoisting), then executes code line-by-line in a single-threaded, top-down manner.\
+Assembly lang are bottom-up mean, solving sub prblms and then bigger prblm solving
 
 It is a dynamically typed language, meaning that a variable's data type is determined at runtime. You do not have to declare the data type of a variable before using it. \
 `console.log (12,13,14..)`  can print multiple values\
 `===` compares datatype and value\
-charAt(index) function of the JavaScript string finds a char element at the supplied index. \
+charAt(index) function of the JavaScript string finds a char element at the supplied index. 
 
 
-Debugging happens during execution, not during compilation.\
+Debugging happens during execution/run time, not during compilation.
 
 ---
 
@@ -162,9 +163,9 @@ console.log(a); // [12, 13] — original unchanged
 ## Functions
 
 Declared by `function X() {}`\
-In JavaScript, functions are first-class citizens — this means: Functions can be treated like any other variable.\
+In JavaScript, functions are first-class citizens — this means: Functions can be treated like any other variable.
 
-JavaScript functions are objects — and objects are assigned by reference, not by value.\
+**JavaScript functions are objects — and objects are assigned by reference, not by value.**
 thus when we do
 ```js
 const X = obj.Y;
@@ -176,7 +177,7 @@ While the values that're in function () are parameters\
 
 **Call-Back Function:** A function passed into another function\
 **Anonymous Function:** Without any name,  eg:
-`function () { ... }`
+`function () { ... } when passed as an Argument, callback`
 `() => { ... }`
 
 **First-Class Function** Func that can be treated as a variable or a value \
