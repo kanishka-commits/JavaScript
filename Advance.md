@@ -157,10 +157,22 @@ In 'Strict mode,' however, all forms of errors, including silent errors, will be
 The 'use strict' keyword is used to define strict mode at the start of the script. Strict mode is supported by all browsers.\
 Engineers will not be allowed to create global variables in 'Strict Mode.\
 
-## this keyword
+## this keyword 
 
-The “this” keyword refers to the **object** that the function is a property of.
+The “this” keyword refers to the **object** that the function is a property of. OR **object** that owns the method.
 
+```js
+#### IMPORTANT
+*If in {} local scope, else global scope*\
+      SCOPE              |    THIS VALUE
+in global scope:             WINDOW\
+in function scope:           WINDOW\
+in method scope:             PARENT OBJECT\
+in arrow function scope:     PARENT OBJECT\
+in eventlistener:            HTML elements
+ ```
+
+`callback functions are nrml functions`
 ```js
 function doSomething() {
   console.log(this);
@@ -168,7 +180,7 @@ function doSomething() {
    
 doSomething();  
 ```
-returns *window object*, because, the doSomething is property fof window object
+returns *window object*, because, the doSomething is property of window object
 
 ```js
 var obj = {
@@ -198,6 +210,7 @@ var obj2 = { name: "akshay", getName };
 
 obj2.getName(); // akshay
 ```
+**Note: Arrow functions don’t bind this; they inherit it from the surrounding (lexical) scope/ enclosing scope.**
 
 ## call(), apply() and, bind() methods
 
@@ -209,12 +222,25 @@ Sometimes, you want to manually control the value of this inside a function — 
   - This method invokes a method (function) by specifying the owner object.
   - call() method allows an object to use the method (function) of another object.
   - Manual this, quick call.
+  - We can sometimes send Object as NULL, eg:
+```js
+let nums = [1, 5, 3];
+console.log(Math.max.apply(null, nums));
+```
+Note: In non-strict mode → this defaults to the global object (window in browsers).\
+In strict mode → this remains null/undefined.\
+
   - `func.call(Object, arg1, arg2, ...)`
-- apply() is exactly like call(), except it takes arguments as an array.
+    
+- apply()
+  - It's exactly like call(), except it takes arguments as an array.
+  - Use apply when your arguments are already in an array (or array-like).
+  - `Note: spread (...) can replace most apply use cases.` 
   `func.apply(thisArg, [arg1, arg2, ...])`
+  
 - bind()
   - does NOT call the function immediately.
-  - It returns a new function with the same body, but with this permanently bound.
+  - It returns a **new function** with the same body, but with this permanently bound.
   - Save this for future use (e.g., callbacks)
   - `let boundFunc = func.bind(thisArg, arg1, arg2, ...);`
  
@@ -223,7 +249,6 @@ Sometimes, you want to manually control the value of this inside a function — 
    const greetKanishka = greet.bind(user, "Hey", "!!"); //user is an object
 
     greetKanishka();  // Output: Hey, Kanishka!!
-
     ```
 
 
@@ -295,6 +320,9 @@ here this constructor is a function
 ## DOM
 DOM stands for Document Object Model.  DOM is a programming interface for HTML and XML documents.\
 When the browser tries to render an HTML document, it creates an object based on the HTML document called DOM. Using this DOM, we can manipulate or change various elements inside the HTML document.\
+
+
+
 
 ## BOM
 BOM stands for Browser Object Model.\
