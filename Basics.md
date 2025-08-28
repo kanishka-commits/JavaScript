@@ -71,7 +71,12 @@ Coercion is when JavaScript automatically converts one data type to another duri
     - Doesnot prevent redeclaration within the same scope.
     - When var is declared in the global scope (outside of any function), it becomes a property of the global object (e.g., window in browsers).
     - Function Scope, Not Block Scope:
-                      
+
+
+We can do `a=9` without mentioning the data type, and it'll NOT throw error if we do this outside of strict mode( JavaScript will implicitly create a global variable a.) , Bt in strcit mode, it'l throw an error\
+
+
+
 ---
   
 ## Temporal dead zone
@@ -169,17 +174,22 @@ then Both obj.Y and X now point to the same function object in memory.
 The values we **send** are arguments\
 While the values that're in function () are parameters\
 
-**Call-Back Function:** A function passed into another function
+**Call-Back Function:** A function passed into another function\
 **Anonymous Function:** Without any name,  eg:
 `function () { ... }`
 `() => { ... }`
-**First-Class Function** Uisng func as a variable 
+
+**First-Class Function** Func that can be treated as a variable or a value \
 **Higher Order Function** Functions that operate on other functions, either by taking them as arguments or by returning them, are called higher-order functions.\
 
 HOF = function that uses another function.\
 Callback = the function being used.\
 
 ---
+
+## New Keyword
+
+Always creates a blank object for constructor function which is getting called, AFTER the new keyword
 
 
 ### ✅ Truthy and ❌ Falsy in JavaScript
