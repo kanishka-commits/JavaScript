@@ -97,7 +97,7 @@
 
 - **Q19. Mutex vs Semaphore vs Monitor?**  
   - Mutex → one thread at a time.  
-  - Semaphore → counter for multiple resources.  
+  - Semaphore → counter for multiple resources.  (It controls how many processes can use a shared resource at the same time so they don’t interfere with each other.)
   - Monitor → abstraction with locks + condition vars.  
 
 ---
