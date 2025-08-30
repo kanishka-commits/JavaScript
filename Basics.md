@@ -11,7 +11,8 @@ It is a dynamically typed language, meaning that a variable's data type is deter
 charAt(index) function of the JavaScript string finds a char element at the supplied index. 
 
 
-Debugging happens during execution/run time, not during compilation.
+Debugging happens during execution/run time, not during compilation.\
+JavaScript follows camelCase because it inherited naming conventions from Java, it improves readability for multi-word identifiers, and it keeps consistency with DOM APIs.
 
 ---
 
