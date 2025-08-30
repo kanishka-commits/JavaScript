@@ -10,8 +10,9 @@ We're using both the versions thus have all 3
 
 Offers:
   - Window object: properties of browser
-  - Stack: stores function call
-  - Heap Memory: stores temporary variables
+  - Stack: Stores true temporary/local variables automatically.
+  - Heap Memory: Stores dynamically allocated variables, which can be temporary if you choose to free them soon after use.
+  
 
 ## Execution Context
 Execution Context is the environment (container) in which JavaScript code is evaluated and executed. \
