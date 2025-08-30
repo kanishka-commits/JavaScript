@@ -271,7 +271,7 @@ Person.prototype.sayHi = function() { console.log(`Hi, I’m ${this.name}`); };
 Special methods for reading (`get`) and updating (`set`) private or protected properties.
 ```javascript
 class User {
-  #age;
+  #age; // private property
   get age() { return this.#age; }
   set age(value) {
     if (value < 0) throw new Error("Invalid age");
