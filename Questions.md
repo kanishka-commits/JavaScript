@@ -155,5 +155,20 @@ let u2 = User("Eve"); // Dave
 console.log(u2); //undefined
 ```
 
+## Rest & Spread
+```js
+function sum(...nums) {
+  return nums.reduce((a,b) => a+b, 0);
+}
+console.log(sum(1,2,3,4));
+```
+## const Object Mutation
+```js
+const obj = { a: 1 };
+obj.a = 2;
+obj.b = 3;
+console.log(obj); //{ a: 2, b: 3 }
+```
+const prevents reassignment of the variable, but object properties can be changed.
 
 
