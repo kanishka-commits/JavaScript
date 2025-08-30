@@ -185,7 +185,12 @@ While the values that're in function () are parameters\
 **Higher Order Function** Functions that operate on other functions, either by taking them as arguments or by returning them, are called higher-order functions.\
 
 HOF = function that uses another function.\
-Callback = the function being used.\
+Callback = the function being used.
+
+**Generator Function**: Func that can pause and resume execution.
+    - Defined using function* syntax.
+    - Uses the yield keyword to pause.
+    - Returns an iterator object when called.
 
 **Pure Function:** A pure function is one that:
                 - Depends only on its input → Output is determined only by the arguments passed.
@@ -291,7 +296,7 @@ Array.isArray({}) FALSE\
   - deleteCount → Number of elements to remove.
   - item1, item2, ... → Elements to insert at start index.
 
-
+`map returns a new array, forEach returns undefined.`
 
 ### 🔸 Non-Mutating Methods (return new array or value)
 
@@ -420,3 +425,4 @@ console.log(dog.eats);  // true (inherited from animal via __proto__)
 Recursion is a technique to iterate over an operation by having a function call itself repeatedly until it arrives at a result.
 
 
+const { getX } = obj; is same as const getX = obj.getX;
