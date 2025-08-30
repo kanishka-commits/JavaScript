@@ -172,7 +172,7 @@ in arrow function scope:     PARENT OBJECT\
 in eventlistener:            HTML elements
  ```
 
-`callback functions are nrml functions`
+`Nrml callback functions are nrml functions, whereas => callback functions are arow functions only`
 ```js
 function doSomething() {
   console.log(this);
@@ -188,12 +188,15 @@ var obj = {
     getName: function(){
     console.log(this.name);
   }
+    X(){
+    console.log(this.name);
 }
    
 obj.getName();
+obj.X()
 ```
 
-returns *obj* object
+**returns *obj* object, both - as both are METHODS**
 
 also
 ```js
@@ -205,12 +208,18 @@ var obj = {
 };
 
 var getName = obj.getName; //The getName function is copied (not called yet), and stored in a variable.
-
 var obj2 = { name: "akshay", getName }; 
-
 obj2.getName(); // akshay
 ```
 **Note: Arrow functions don’t bind this; they inherit it from the surrounding (lexical) scope/ enclosing scope.**
+
+```js
+const obj = {
+  name: "Alice",
+  greet: () => console.log(this.name)
+};
+obj.greet(); //this in arrow function points to outer scope, i..e global
+```
 
 ## call(), apply() and, bind() methods
 
