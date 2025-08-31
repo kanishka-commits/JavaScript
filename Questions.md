@@ -26,6 +26,15 @@ console.log("Outside loop:", j); // ❌ Error (j is not defined)
 Bt when we use VAR, we can access j 
 
 
+## Var vs Let
+```js
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 1000);
+}
+```
+- var → function-scoped, shared across loop iterations
+- let → block-scoped, creates a new binding per iteration
+
 ## this keyword
 
 ```js
