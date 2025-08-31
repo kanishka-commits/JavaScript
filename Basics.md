@@ -338,6 +338,14 @@ Array.isArray({}) FALSE\
 - `flat()` – Flattens nested arrays
 - `flatMap()` – Maps and flattens in one step
 
+```js
+const arr = [1, [2, [3, [4, [5]]]]];
+
+console.log(arr.flat());        // [1, 2, [3, [4, [5]]]]   → default depth = 1
+console.log(arr.flat(2));       // [1, 2, 3, [4, [5]]]     → depth = 2
+console.log(arr.flat(Infinity)); // [1, 2, 3, 4, 5]        → fully flattened
+```
+
 ---
 
 ## JavaScript String Methods
