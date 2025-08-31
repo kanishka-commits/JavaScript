@@ -180,4 +180,214 @@ console.log(obj); //{ a: 2, b: 3 }
 ```
 const prevents reassignment of the variable, but object properties can be changed.
 
+## Questions
 
+Q1. `console.log(0.1 + 0.2 === 0.3);`
+
+👉 Output: false
+✔ Because of floating-point precision, 0.1 + 0.2 = 0.30000000000000004.
+
+Q2.`console.log(typeof NaN);`
+👉 Output: "number"
+✔ NaN means Not-a-Number, but its type is still "number" in JS.
+
+Q3.`console.log([1, 2, 3] + [4, 5, 6]);`
+👉 Output: "1,2,34,5,6"
+✔ Arrays are converted to strings when using +.
+
+Q4.
+```js
+let a = { x: 1 };
+let b = a;
+b.x = 2;
+console.log(a.x);
+```
+👉 Output: 2
+✔ Objects are reference types. b points to the same object as a.
+
+Q5.`console.log([] == ![]);`
+👉 Output: true
+✔ ![] → false. Then [] == false.
+During coercion, [] → "" → 0.
+false → 0.
+So 0 == 0 → true.
+
+Q6.
+```js
+(function() {
+  var a = b = 5;
+})();
+console.log(typeof b);
+console.log(typeof a);
+```
+👉 Output:
+"number"
+"undefined"
+✔ Inside IIFE: b = 5 makes b global (since no var/let/const).
+But a is local to function, not accessible outside.
+
+Q7.
+```js
+console.log("5" - 3);
+console.log("5" + 3);
+```
+👉 Output:
+2
+"53"
+✔ - forces type coercion to number.
+✔ + with string does concatenation.
+
+Q8.
+```js
+let obj = { a: 100 };
+console.log(obj.toString());
+```
+👉 Output: "[object Object]"
+✔ Default toString() for plain objects.
+
+eg: 
+```js
+console.log(obj); // { a: 1, b: 2 }
+console.log(obj + ""); // [object Object]
+```
+The second one becomes "[object Object]" because the object gets converted into a string using .toString().
+
+```js
+console.log(JSON.stringify(obj)); 
+// {"a":1,"b":2}
+```
+
+Q9.
+```js
+console.log(null == undefined);
+console.log(null === undefined);
+```
+👉 Output:
+true
+false
+✔ == does type coercion → null loosely equals undefined.
+✔ === checks strict equality (different types).
+
+Q10.
+```js
+console.log([1, 2, 3].map(num => {
+  if (num > 1) return;
+  return num * 2;
+}));
+```
+👉 Output: [2, undefined, undefined]
+✔ For 1 → returns 1*2 = 2.
+✔ For 2 and 3 → condition num > 1 is true, so it returns undefined.
+
+Q11.
+```js
+var a = 10
+(function () {
+  console.log(a); 
+  a = 20;
+})();
+
+//is same as: 
+(function () {
+  var a;          // hoisted, initialized as undefined
+  console.log(a); // logs undefined
+  a = 20;
+})();
+```
+
+Q12.
+```js
+console.log("start");
+async function test() {
+  console.log("inside");
+  return "done";
+}
+test().then(console.log);
+console.log("end");
+```
+Output
+```
+start
+inside
+end
+done
+```
+
+why? sync function start, then sync inside, then it return a promise thus goes to microtask, then end as its' async and at end, done
+
+Q13.
+```js
+// Q2
+setTimeout(() => console.log("1"), 0);
+
+Promise.resolve().then(() => {
+  console.log("2");
+  setTimeout(() => console.log("3"), 0);
+});
+
+console.log("4");
+
+// Answer:
+// 4
+// 2
+// 1
+// 3
+```
+
+Q14,
+```js
+// Q5
+setTimeout(() => console.log("outer"), 0);
+
+Promise.resolve().then(() => {
+  console.log("inner");
+  setTimeout(() => console.log("nested"), 0);
+});
+
+// Answer:
+// inner
+// outer
+// nested
+```
+
+Q15,
+```js
+console.log("M");
+setTimeout(() => console.log("N"), 0);
+(async function() {
+  console.log("O");
+  await null;
+  console.log("P");
+})();
+console.log("Q");
+
+// Answer:
+// M
+// O
+// Q
+// P
+// N
+```
+
+Q16,
+```js
+async function foo() {
+  console.log("X");
+  await null;
+  console.log("Y");
+}
+console.log("Z");
+foo();
+(async function c() {
+  console.log("iife");
+})();
+console.log("W");
+
+/* Answer
+Z
+X
+iife
+W
+Y
+*/
+```
