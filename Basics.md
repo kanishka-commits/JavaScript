@@ -119,6 +119,8 @@ Variables declared with var are hoisted as undefined (without assignment).\
 - Assigned **by value**
 - Types: `String`, `Number`, `BigInt`, `Boolean`, `Undefined`, `Null`, `Symbol(ES6 version)`
 
+*Type of null is object: It’s a bug because in early JavaScript, values were stored with type tags in binary, and null was represented as all zeros (0000), the same tag used for objects, so typeof null incorrectly returns "object".*
+
 We can mutability using a wrapper object: i..e let x = { y:6} then x.y=7 
 
 ### 🔸 Reference Types [], {}, ()
@@ -397,10 +399,18 @@ to delete key:value, delete obj.key\
 
 ### ProtoType in Object
 
-Every created object gets a property called as Prototype automatically. `[[Prototoype]]`
+Every created object gets a property called as Prototype automatically. `[[Prototoype]]`\
+The prototype is itself an object, so the prototype will have its own prototype, making what's called a prototype chain. The chain ends when we reach a prototype that has null for its own prototype.
 
-Usage: **It contains many helper properties and methods** (eg .length)
+Usage: **It contains many helper properties and methods** (eg .length)\
+These properties and methods points to same properties and methods and doesn't create a new memory for storing these. Thus changes made in one will affect in all objects that is using these prop and methods
 
+It's a mechanism by which JS objects inherit features from one another.\
+
+We can access this prototype object using: obj.__proto__
+here, this'll be referencing to that prtotype object and thsu we can make changes in that prototype object as well.
+
+We can directly access the Prototype object as `object.prototype`
 
 ### ProtoTypal Inheritance
 
