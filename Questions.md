@@ -391,3 +391,85 @@ W
 Y
 */
 ```
+
+
+Q. Display fact using Axios
+
+```js
+import React,{useState} from 'react';
+import axios from "axios";
+
+const App = () => {
+  const [open,setOpen]=useState(false);
+  const [fact,setfact]=useState("");
+  const handlefacts= async () =>{
+    try{
+      let res=await axios.get("https://catfact.ninja/fact");
+      setfact(res.data.fact);
+    }
+    catch(e){
+      console.log("error is",e);
+    }
+  }
+  return (
+    <>
+    <h1>get Facts</h1>
+    <button onClick={handlefacts}>Click me</button>
+    <p id="facts"></p>
+    {open && 
+    <p className='factdisplay'>{fact}</p>}
+    </>
+  )
+}
+
+export default App
+```
+
+
+Q. Add names of colleges when "country" is taken from user
+
+```js
+import React, { useState } from 'react';
+import axios from "axios";
+
+const App = () => {
+  const [country, setCountry] = useState("");
+  const [list, setList] = useState([]);
+
+  const handleName = async () => {
+    try {
+      const res = await axios.get("http://universities.hipolabs.com/search?name=" + country);
+
+      // Build the array with objects including unique IDs
+      const newList = res.data.map((item, index) => ({
+        name: item.name,
+        id: index
+      }));
+
+      setList(newList); // update state once
+
+      console.log(res.data);
+    } catch (e) {
+      console.log("error is", e);
+    }
+  };
+
+  return (
+    <>
+      <h1>Get College Names</h1>
+      <input 
+        type="text" 
+        value={country} 
+        onChange={(e) => setCountry(e.target.value)} 
+      />
+      <button onClick={handleName}>Click me</button>
+
+      {list.map((item) => (
+        <p key={item.id}>{item.name}</p>
+      ))}
+    </>
+  )
+}
+
+export default App;
+```
