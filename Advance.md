@@ -65,6 +65,12 @@ But with asynchronous code, JS can start a task, then move on without waiting, a
   We use async when using these setInterval(), setTimeout(), Promises, Fetch, Axios, XMLHttpsRequest
   ### Why? When we click on something or tells the browser to do some task, that can be asking some otehr server to fetch something, then if itr takes time, then we won't be able to do any other thing is the webpage will be freezed until the task is done, thus we use async, so that till we get the output of that task, we can still run or do other things on the webpage
 
+### Using Axios over HTTP requests
+- Browser Compatibility: Axios has broader browser compatibility, including support for older browsers like IE11, because it relies on XMLHttpRequest under the hood. fetch is a newer API and requires polyfills for older browsers.
+- Automatic JSON Parsing: Axios automatically parses JSON responses, providing the data directly in response.data. fetch requires an additional step to call response.json() to parse the response body.
+- Request Cancellation and Timeout: Axios provides built-in mechanisms for canceling requests and setting request timeouts, which are crucial for managing long-running requests or preventing indefinite hangs. fetch does not offer these features natively.
+- Progress Tracking: Axios makes it easier to track the progress of file uploads or downloads, which is beneficial for displaying progress bars to users.
+  
   
 **Tools Used for Asynchronous JavaScript**\
 
@@ -87,7 +93,7 @@ This runs forever every second unless stopped with clearInterval().
    - await pauses the function until the Promise is resolved.
    - Use try...catch to handle errors in async functions.
   
-## Promiese
+## Promise
 They're are used to handle asynchronous operations in JavaScript, such as fetching data from an API, reading files, or setting timers.\
 Before promises, asynchronous code was managed using callbacks, which often led to callback hell—deeply nested, hard-to-read code.\
 
