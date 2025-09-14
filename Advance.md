@@ -65,12 +65,76 @@ But with asynchronous code, JS can start a task, then move on without waiting, a
   We use async when using these setInterval(), setTimeout(), Promises, Fetch, Axios, XMLHttpsRequest
   ### Why? When we click on something or tells the browser to do some task, that can be asking some otehr server to fetch something, then if itr takes time, then we won't be able to do any other thing is the webpage will be freezed until the task is done, thus we use async, so that till we get the output of that task, we can still run or do other things on the webpage
 
-### Using Axios over HTTP requests
+## Axios
+
+**Using Axios over HTTP requests**
 - Browser Compatibility: Axios has broader browser compatibility, including support for older browsers like IE11, because it relies on XMLHttpRequest under the hood. fetch is a newer API and requires polyfills for older browsers.
 - Automatic JSON Parsing: Axios automatically parses JSON responses, providing the data directly in response.data. fetch requires an additional step to call response.json() to parse the response body.
 - Request Cancellation and Timeout: Axios provides built-in mechanisms for canceling requests and setting request timeouts, which are crucial for managing long-running requests or preventing indefinite hangs. fetch does not offer these features natively.
 - Progress Tracking: Axios makes it easier to track the progress of file uploads or downloads, which is beneficial for displaying progress bars to users.
-  
+
+**Passing Headers in Axios**
+
+In Axios you can pass headers in the second argument (for post) or as an options object (for get).\
+We pass headers in Axios (or any HTTP request) to give the server extra information about our request. Think of headers as metadata that travels along with the request.\
+
+- Authentication / Authorization: Most APIs aren’t public. They need an API key, token, or session info to verify you.
+```js
+headers: {
+  "Authorization": "Bearer YOUR_ACCESS_TOKEN"
+}
+```
+
+- Content Type: When sending data (e.g., JSON, form data, file upload), the server must know what format it’s in.
+```
+headers: {
+  "Content-Type": "application/json"
+}
+```
+This says: “I’m sending JSON data in my request body.”
+
+- Localization / Language: Some APIs let you request responses in a specific language.
+```
+headers: {
+  "Accept-Language": "en-US"
+}
+```
+
+- Custom Headers
+
+Some APIs define their own headers, like:
+```
+headers: {
+  "X-API-Key": "abcd1234"
+}
+```
+
+The X- prefix often means it’s a custom API requirement.
+
+**query strings?**
+in Axios, you update or add query strings by using the params option.\
+
+*get*
+```js
+axios.get("https://api.example.com/search", {
+  params: {
+    q: "dogs",
+    limit: 10
+  }
+});
+```
+`https://api.example.com/search?q=dogs&limit=10`
+
+*post*
+```js
+axios.post("https://api.example.com/items", 
+  { name: "ball" }, // body
+  { params: { type: "toy" } }
+);
+```
+`https://api.example.com/items?type=toy`
+
+**or we can simply do axios.get(url+query)**
   
 **Tools Used for Asynchronous JavaScript**\
 
@@ -399,4 +463,15 @@ Server-side: Everything that happens behind the scenes — storing data, verifyi
 ## Execution Order
 1. **Synchronous Code** (Call Stack).  
 2. **Microtasks** (Promise callbacks).  
-3. **Macrotasks** (`setTimeout`, `setInterval`).  
+3. **Macrotasks** (`setTimeout`, `setInterval`).
+
+## APIs
+
+**When we need to add info from API arrays to local storag, state**
+```js
+const newList = res.data.map((item, index) => ({
+  name: item.name,
+  id: index
+}));
+```
+
