@@ -228,8 +228,23 @@ console.log(increment()); // 2 (same input, different output)
 
 ## New Keyword
 
-Always creates a blank object for constructor function which is getting called, AFTER the new keyword
+When you use new in JavaScript, here’s what happens step by step:
 
+- A new, blank object is created (for constructor function): Think of it as an empty box → {}.
+- That object is linked to the constructor’s prototype: So the box gets a hidden link (__proto__) to the constructor’s prototype. `(If constructor function has a prototype property `eg: function.prototype.talk=()=>{}` then this new object prototype points to the function's prototype else it points to the object.prototype)`
+- The constructor function is called with `this`, set to the new object: Example: inside the constructor, this points to that new empty box.
+- Now, two possibilities:
+  - If the constructor returns an object (non-primitive) → that object is used as the final result.
+  - If the constructor returns nothing or a primitive (like number, string, etc.) → then the new empty box (this) is returned instead.
+ 
+
+
+## How to have OOPS concept in JS?
+
+We can create objects and instances using 3 major methods:
+1. Factory Functions
+2. New keyword with Prototype
+3. Constructor functions with new operator 
 
 ### ✅ Truthy and ❌ Falsy in JavaScript
 7 Falsy values:
