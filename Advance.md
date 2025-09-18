@@ -364,7 +364,7 @@ For arrow functions:
 `const add = a => b => a + b;`
 
 ## Closure
-Closure ia a feature in JS which is formed when a function remembers and accesses the variables from its outer scope, even after that outer function has finished running.
+Closure is a feature in JS which is formed when a function remembers and accesses the variables from its outer scope, even after that outer function has finished running.
 
 
 **A closure lets a function "remember" and "use" variables from where it was created, not where it was called.**\
